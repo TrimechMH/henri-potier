@@ -1,0 +1,1 @@
+export const BOOK_LIST_RESULT = 'BOOK_LIST_RESULT';
