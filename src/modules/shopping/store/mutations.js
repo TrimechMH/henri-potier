@@ -6,7 +6,7 @@ const mutations = {
     [BOOK_LIST_RESULT](state, bookListResult) {
         Vue.set(state, 'bookListResult', bookListResult);
     },
-    setSelectedBook(state, bookSelected) {
+    setBookSelected(state, bookSelected) {
         Vue.set(state, 'bookSelected', bookSelected);
     },
     setSearchValue(state, searchValue) {
