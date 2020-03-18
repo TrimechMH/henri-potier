@@ -8,7 +8,8 @@
                         <h2>Henri Potier</h2>
                         <ul class="breadcrumbs-list">
                             <li>
-                                <a title="Return to Home">Home</a>
+                                <router-link class="cursor" :to="{ name: 'catalogue'}" title="Return to Home">Home
+                                </router-link>
                             </li>
                             <li>Henri Potier</li>
                         </ul>

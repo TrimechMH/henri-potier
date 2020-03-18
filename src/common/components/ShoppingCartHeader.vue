@@ -12,15 +12,13 @@
                         <div class="cart-product-line fast-line">
                             <span>Shipping</span>
                             <span class="free-shiping">
-                                <span>€</span>
-                                {{ cart.totalPrice - cart.bestOffer.proposedOffer || 0 | numeral('0,0.00')}}
+                                € {{ cart.totalPrice - cart.bestOffer.proposedOffer || 0 | numeral('0,0.00')}}
                             </span>
                         </div>
                         <div class="cart-product-line">
                             <span>Total</span>
                             <span class="total">
-                                <span>€</span>
-                                {{cart.bestOffer.proposedOffer || 0 | numeral('0,0.00')}}
+                                € {{cart.bestOffer.proposedOffer || 0 | numeral('0,0.00')}}
                             </span>
                         </div>
                     </div>

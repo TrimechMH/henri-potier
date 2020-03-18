@@ -6,7 +6,7 @@ import App from './App.vue';
 import lodash from 'lodash'
 import VueLodash from 'vue-lodash'
 import VueResource from 'vue-resource';
-import vueNumeralFilterInstaller from 'vue-numeral-filter';
+import numeral from 'numeral';
 
 import './assets/css/css.js'
 
@@ -24,7 +24,10 @@ export const setupApp = ({createRouter = createRouterOriginal, createStore = cre
     Vue.use(Vuex);
     Vue.use(VueResource);
     Vue.use(VueLodash, { name: 'custom' , lodash: lodash });
-    Vue.use(vueNumeralFilterInstaller, { locale: 'en-gb' });
+
+    Vue.filter('numeral', (value, format) => {
+        return numeral(value).format(format);
+    });
 
     const store = createStore();
     const router = createRouter();
@@ -33,10 +36,12 @@ export const setupApp = ({createRouter = createRouterOriginal, createStore = cre
     return {store, router};
 };
 
-const { store, router} = setupApp();
+const { store, router } = setupApp();
 
 new Vue({
     router,
     store,
     render: h => h(App)
 }).$mount('#app');
+
+export default setupApp;
