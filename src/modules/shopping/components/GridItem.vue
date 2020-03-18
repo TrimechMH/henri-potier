@@ -69,7 +69,7 @@
                 });
             },
             addToCart() {
-                const cart = this._.merge(this.book, {quantity: 1});
+                const cart = this._.merge( {quantity: 1}, this.book );
                 this.updateCart({cart, purpose: 'add'});
             }
         }
