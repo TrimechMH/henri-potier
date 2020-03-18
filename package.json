@@ -6,11 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:coverage": "vue-cli-service test:unit --coverage",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.4",
     "lodash": "^4.17.15",
+    "numeral": "^2.0.6",
     "vue": "^2.6.11",
     "vue-lodash": "^2.1.2",
     "vue-numeral-filter": "^1.1.1",
