@@ -1,6 +1,7 @@
 const state = {
     bookListResult: [],
-    bookSelected: {}
+    bookSelected: {},
+    searchValue: null
 };
 
 export default state;
