@@ -27,7 +27,7 @@
                                     <div class="numbers-row">
                                         <input type="number" id="french-hens" v-model="quantity">
                                     </div>
-                                    <a @click="addToCart()" class="single_add_to_cart_button">Add to cart</a>
+                                    <a @click="addToCart()" class="cursor single_add_to_cart_button">Add to cart</a>
                                 </form>
                             </div>
                             <div class="quick-desc">

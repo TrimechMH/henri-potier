@@ -57,6 +57,9 @@ describe('ListItem', () => {
         expect(ListItem).toBeDefined();
         expect(ListItem.name).toEqual('list-item');
         expect(typeof ListItem.methods.updateCart).toEqual('function');
+        expect(wrapper.find('.deal-product-content h4 .cursor').text()).toEqual(MOCK_BOOK_RESULT_LIST[0].title);
+
+
     });
 
 
