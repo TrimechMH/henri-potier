@@ -16,6 +16,13 @@ const actions = {
                 bestOffer: 0,
             });
         }
+    },
+    clearCart(context) {
+        context.commit(SET_CART, {
+            cartList: {},
+            totalPrice: 0,
+            bestOffer: 0,
+        });
     }
 };
 

@@ -47,10 +47,12 @@
                 </table>
             </div>
             <div class="shopingcart-bottom-area">
-                <a class="left-shoping-cart cursor">CONTINUE SHOPPING</a>
+                <router-link class="left-shoping-cart cursor" :to="{ name: 'catalogue'}">
+                    CONTINUE SHOPPING
+                </router-link>
                 <div class="shopingcart-bottom-area pull-right">
-                    <a class="right-shoping-cart cursor">CLEAR SHOPPING CART</a>
-                    <a class="right-shoping-cart cursor">UPDATE SHOPPING CART</a>
+                    <a @click="clearCart()" class="right-shoping-cart cursor">CLEAR SHOPPING CART</a>
+                    <a class="right-shoping-cart">UPDATE SHOPPING CART</a>
                 </div>
             </div>
         </div>
@@ -69,7 +71,8 @@
         },
         methods: {
             ...mapActions('cartStore', [
-                'updateCart'
+                'updateCart',
+                'clearCart',
             ]),
             removeCart(cart) {
                 this.updateCart({cart, purpose: 'remove'});

@@ -1,27 +1,26 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
-import CartItem from './CartItem';
+import Cart from './Cart';
 import VueRouter from 'vue-router';
+import numeral from 'numeral';
 
 const localVue = createLocalVue();
 const router = new VueRouter();
 
 localVue.use(Vuex);
 localVue.use(VueRouter);
+localVue.filter('numeral', (value, format) => {
+    return numeral(value).format(format);
+});
 
-describe('CartItem', () => {
-    let actions;
+describe('Cart', () => {
     let store;
 
     beforeEach(() => {
-        actions = {
-            updateCart: jest.fn(),
-        };
         store = new Vuex.Store({
             modules: {
                 cartStore : {
                     namespaced: true,
-                    actions,
                     state: {
                         cart: {
                             cartList: [{
@@ -45,16 +44,12 @@ describe('CartItem', () => {
 
     // Inspect the raw component options
     it('Should be created', () => {
-        expect(CartItem).toBeDefined();
-        expect(CartItem.name).toEqual('cart-item');
-        expect(typeof CartItem.methods.updateCart).toEqual('function');
-        expect(typeof CartItem.methods.removeCart).toEqual('function');
+        expect(Cart).toBeDefined();
+        expect(Cart.name).toEqual('cart');
     });
 
-    it('Should dispatches "updateCart" when clicking on remove Cart', () => {
-        const wrapper = shallowMount(CartItem, { router , store, localVue });
-        const button = wrapper.find('div.cursor.cart-product-remove');
-        button.trigger('click');
-        expect(actions.updateCart).toHaveBeenCalled();
+    it('Should render cart data', () => {
+        const wrapper = shallowMount(Cart, { router , store, localVue });
+        expect(wrapper.find('.subtotal-area h2').text().replace( /\s/g, '')).toEqual('SUBTOTAL€0.00');
     });
 });

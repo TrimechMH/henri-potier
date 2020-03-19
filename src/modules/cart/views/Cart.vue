@@ -57,7 +57,7 @@
 
 <script>
     import { mapState } from 'vuex';
-    import ProductTable from '../components/productTable';
+    import ProductTable from '../components/ProductTable';
 
     export default {
         components: {ProductTable},

@@ -33,7 +33,7 @@
                             <i class="fa fa-star icolor"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <h2>{{bookDetails.title}}</h2>
+                        <h2 id="title">{{bookDetails.title}}</h2>
                         <div class="availability">
                             <span>In stock</span>
                         </div>
@@ -42,16 +42,16 @@
                             <h2>{{bookDetails.price}} €</h2>
                         </div>
                         <div class="product-attributes clearfix">
-                                <span class="pull-left" id="quantity-wanted-p">
-									<span @click="handleDecreaseQuantity()" class="dec qtybutton">-</span>
-									<input type="number" v-model="quantity" class="cart-plus-minus-box">
-									<span @click="quantity++" class="inc qtybutton">+</span>
-								</span>
+                            <span class="pull-left" id="quantity-wanted-p">
+                                <span @click="handleDecreaseQuantity()" class="dec qtybutton">-</span>
+                                <input type="number" v-model="quantity" class="cart-plus-minus-box">
+                                <span @click="quantity++" class="inc qtybutton">+</span>
+                            </span>
                             <span>
-                                    <a class="cursor cart-btn btn-default" @click="addToCart()">
-                                        <i class="flaticon-shop"></i> Add to cart
-                                    </a>
-                               </span>
+                                <a class="cursor cart-btn btn-default" @click="addToCart()">
+                                    <i class="flaticon-shop"></i> Add to cart
+                                </a>
+                           </span>
                         </div>
                         <div class="single-product-categories">
                             <label>Categories:</label>
@@ -97,7 +97,6 @@
                 }
             }
             this.bookDetails = this._.find(this.bookListResult, {isbn: this.$route.query.bookIsbn});
-
         },
         methods: {
             ...mapActions('shoppingStore', [
@@ -118,8 +117,6 @@
                 const cart = this._.merge(this.bookDetails, {quantity: this.quantity});
                 this.updateCart({cart, purpose: 'add'});
             }
-        },
-        destroyed() {
         }
     };
 </script>
