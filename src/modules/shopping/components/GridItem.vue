@@ -8,10 +8,10 @@
                 </a>
                 <div class="product-description">
                     <div class="functional-buttons">
-                        <a @click="addToCart()" class="cursor" title="Add to Cart">
+                        <a id="addToCart" @click="addToCart()" class="cursor" title="Add to Cart">
                             <i class="fa fa-shopping-cart"></i>
                         </a>
-                        <a class="cursor" @click="setSelectedBook()" title="Quick view" data-toggle="modal"
+                        <a id="productModal" class="cursor" @click="setSelectedBook(book)" title="Quick view" data-toggle="modal"
                            data-target="#productModal">
                             <i class="fa fa-compress"></i>
                         </a>
@@ -42,8 +42,7 @@
         props: ['book'],
         methods: {
             ...mapMutations('shoppingStore', [
-                'setBookSelected',
-                'setBookDetails'
+                'setBookSelected'
             ]),
             ...mapActions('cartStore', [
                 'updateCart'
