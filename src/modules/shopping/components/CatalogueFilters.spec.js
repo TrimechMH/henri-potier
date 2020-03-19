@@ -1,6 +1,5 @@
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
-import Vue from 'vue';
 import CatalogueFilters from './CatalogueFilters';
 import VueRouter from 'vue-router';
 import lodash from 'lodash';

@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import lodash from 'lodash'
 import VueLodash from 'vue-lodash'
 import numeral from 'numeral';
+import { CART } from '../../../common/mocks/object-models';
 
 const localVue = createLocalVue();
 const router = new VueRouter();
@@ -20,38 +21,22 @@ localVue.filter('numeral', (value, format) => {
 describe('ProductTable', () => {
     let store;
     let actions;
-    let state;
 
     beforeEach(() => {
         actions = {
             updateCart: jest.fn(),
             clearCart: jest.fn(),
         };
-        state =  {
-            cart: {
-                cartList: [{
-                    isbn: 'c8fabf68-8374-48fe-a7ea-a00ccd07afff',
-                    title: 'Henri Potier à l\'école des sorciers',
-                    price: 35,
-                    cover: 'http://henri-potier.xebia.fr/hp0.jpg',
-                    synopsis: ['test'],
-                    quantity: 1
-                }],
-                totalPrice: 35,
-                bestOffer: {
-                    type: 'minus',
-                    value: 15,
-                    proposedOffer: 34
-                }
-            }
-        };
+
 
         store = new Vuex.Store({
             modules: {
                 cartStore : {
                     namespaced: true,
                     actions,
-                    state
+                    state : {
+                        cart: CART
+                    }
                 }
             }
         })

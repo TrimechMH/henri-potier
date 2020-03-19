@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Cart from './Cart';
 import VueRouter from 'vue-router';
 import numeral from 'numeral';
+import { CART } from '../../../common/mocks/object-models';
 
 const localVue = createLocalVue();
 const router = new VueRouter();
@@ -22,20 +23,7 @@ describe('Cart', () => {
                 cartStore : {
                     namespaced: true,
                     state: {
-                        cart: {
-                            cartList: [{
-                                isbn: 'c8fabf68-8374-48fe-a7ea-a00ccd07afff',
-                                title: 'Henri Potier à l\'école des sorciers',
-                                price: 35,
-                                cover: 'http://henri-potier.xebia.fr/hp0.jpg',
-                                synopsis: ['test']
-                            }],
-                            totalPrice: 0,
-                            bestOffer: {
-                                type: 'minus',
-                                value: 15
-                            }
-                        }
+                        cart: CART
                     }
                 }
             }
@@ -50,6 +38,6 @@ describe('Cart', () => {
 
     it('Should render cart data', () => {
         const wrapper = shallowMount(Cart, { router , store, localVue });
-        expect(wrapper.find('.subtotal-area h2').text().replace( /\s/g, '')).toEqual('SUBTOTAL€0.00');
+        expect(wrapper.find('.subtotal-area h2').text().replace( /\s/g, '')).toEqual('SUBTOTAL€1.00');
     });
 });

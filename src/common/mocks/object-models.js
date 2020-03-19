@@ -1,4 +1,21 @@
-export const MOCK_BOOK_RESULT_LIST =  [
+export const CART = {
+    cartList: [{
+        isbn: 'c8fabf68-8374-48fe-a7ea-a00ccd07afff',
+        title: 'Henri Potier à l\'école des sorciers',
+        price: 35,
+        cover: 'http://henri-potier.xebia.fr/hp0.jpg',
+        synopsis: ['test'],
+        quantity: 1
+    }],
+    totalPrice: 35,
+    bestOffer: {
+        type: 'minus',
+        value: 15,
+        proposedOffer: 34
+    }
+};
+
+export const MOCK_BOOK_RESULT_LIST = [
     {
         isbn: 'c8fabf68-8374-48fe-a7ea-a00ccd07afff',
         title: 'Henri Potier à l\'école des sorciers',
