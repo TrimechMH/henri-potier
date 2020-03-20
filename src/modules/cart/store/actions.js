@@ -11,17 +11,17 @@ const actions = {
             context.commit(SET_CART, response);
         } catch (error) {
             context.commit(SET_CART, {
-                cartList: {},
+                cartList: [],
                 totalPrice: 0,
-                bestOffer: 0,
+                bestOffer: {},
             });
         }
     },
     clearCart(context) {
         context.commit(SET_CART, {
-            cartList: {},
+            cartList: [],
             totalPrice: 0,
-            bestOffer: 0,
+            bestOffer: {},
         });
     }
 };

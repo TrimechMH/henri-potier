@@ -4,18 +4,15 @@ import {
 import * as api from '../services/books.service';
 
 const actions = {
-    getBooksAction(context, payload) {
-        return new Promise((resolve, reject) => {
-            api.getBooksService(payload)
-                .then((response) => {
-                    context.commit(BOOK_LIST_RESULT, response.body);
-                    resolve(response.body);
-                })
-                .catch((error) => {
-                    context.commit(BOOK_LIST_RESULT, []);
-                    reject(error);
-                });
-        });
+    async getBooksAction(context) {
+        try {
+            const response = await api.getBooksService();
+            context.commit(BOOK_LIST_RESULT, response.body);
+            return Promise.resolve(response.body);
+        } catch (error) {
+            context.commit(BOOK_LIST_RESULT, []);
+            return Promise.reject(error);
+        }
     },
 };
 
