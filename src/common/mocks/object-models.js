@@ -33,3 +33,21 @@ export const MOCK_BOOK_RESULT_LIST = [
         ]
     }
 ];
+
+export const MOCK_OFFERS = {
+    offers: [
+        {
+            type: 'percentage',
+            value: 5
+        },
+        {
+            type: 'minus',
+            value: 15
+        },
+        {
+            type: 'slice',
+            sliceValue: 100,
+            value: 12
+        }
+    ]
+};

@@ -8,11 +8,11 @@ const getCartDetails = async (cartList, cartToBeAdded, purpose) => {
             const offers = await getCommercialOffersService(cartList);
             const {totalPrice, bestOffer} = _formatResponse(cartList, offers);
             return {cartList, totalPrice, bestOffer};
-        } catch {
-            return Promise.reject(new Error('An error during update cart list !'));
+        } catch (error) {
+            return Promise.reject(new Error('An error during update cart list ! ' + error));
         }
     } else {
-        return Promise.reject(new Error('Nothing to be removed !'));
+        return Promise.reject(new Error('Nothing to be removed | added !'));
     }
 };
 
