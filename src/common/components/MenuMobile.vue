@@ -8,7 +8,7 @@
                         <nav id="dropdown">
                             <ul>
                                 <li>
-                                    <router-link class="cursor" :to="{ name: 'catalogue'}">>HOME</router-link>
+                                    <router-link class="cursor" :to="{ name: 'catalogue'}">HOME</router-link>
                                 </li>
                                 <li>
                                     <router-link class="cursor" :to="{ name: 'cart'}">Cart</router-link>
