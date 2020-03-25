@@ -72,7 +72,7 @@ describe('GridItem', () => {
 
 
     it('Should commit "setSelectedBook" on open modal click', () => {
-       const openModalBtn = wrapper.find('.functional-buttons #productModal');
+       const openModalBtn = wrapper.find('.functional-buttons #productModalLink');
         openModalBtn.trigger('click');
         expect(mutations.setBookSelected).toHaveBeenCalledWith({}, MOCK_BOOK_RESULT_LIST[0]);
     });

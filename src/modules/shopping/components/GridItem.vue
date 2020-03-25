@@ -11,7 +11,7 @@
                         <a id="addToCart" @click="addToCart()" class="cursor" title="Add to Cart">
                             <i class="fa fa-shopping-cart"></i>
                         </a>
-                        <a id="productModal" class="cursor" @click="setSelectedBook(book)" title="Quick view" data-toggle="modal"
+                        <a id="productModalLink" class="cursor" @click="setSelectedBook(book)" title="Quick view" data-toggle="modal"
                            data-target="#productModal">
                             <i class="fa fa-compress"></i>
                         </a>
